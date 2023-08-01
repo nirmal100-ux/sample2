@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import HomePage from './pages/HomePage';
 import RootLayOut from './pages/RootLayOut';
 import { Route, Routes } from 'react-router';
-import NotFound from './pages/NotFound';
+
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Category from './pages/Category';
+import Detail from './pages/Detail';
+import PageMovie from './pages/PageMovie';
+import Search from './pages/Search';
 
 
 const App = () => {
@@ -137,13 +144,16 @@ const App = () => {
   //console.log(newnumbers);
 
 
-  //const number = [1, 3, 2, 3, 20, 5];
+  //const number = [3, 2, 4, 1, 20, 5];
 
 
-  /* const n = number.reduce((p, n) => {
-    return p < n ? n : p;
-  });
-  console.log(n); */
+  // const n = number.reduce((p, n) => {
+
+  // return p < n ? n : p;
+  // });
+  //console.log(n);
+
+
   /*const data = [
     { id: 1, name: 'ram', gender: 'male' },
     { id: 2, name: 'rita', gender: 'female' },
@@ -171,20 +181,117 @@ const App = () => {
 
   console.log(n);
   console.log(d); */
+  //const val = prompt("what is your age");
+  // console.log(val)
+
+  //const greet = (greet, user) => {
+  // console.log(greet);
+  //alert('${greet} $(user)');
+
+  //des
+  //const person=['ram', 'hari','shyam'];
+  //const[]=person;
+
+  /*const data = [
+   {
+     "strMeal": "Baked salmon with fennel & tomatoes",
+     "strMealThumb": "https://www.themealdb.com/images/media/meals/1548772327.jpg",
+     "idMeal": "52959"
+   },
+   {
+     "strMeal": "Cajun spiced fish tacos",
+     "strMealThumb": "https://www.themealdb.com/images/media/meals/uvuyxu1503067369.jpg",
+     "idMeal": "52819"
+   },
+   {
+     "strMeal": "Escovitch Fish",
+     "strMealThumb": "https://www.themealdb.com/images/media/meals/1520084413.jpg",
+     "idMeal": "52944"
+   },
+   {
+     "strMeal": "Fish fofos",
+     "strMealThumb": "https://www.themealdb.com/images/media/meals/a15wsa1614349126.jpg",
+     "idMeal": "53043"
+   },
+   {
+     "strMeal": "Fish pie",
+     "strMealThumb": "https://www.themealdb.com/images/media/meals/ysxwuq1487323065.jpg",
+     "idMeal": "52802"
+   },
+   {
+     "strMeal": "Fish Stew with Rouille",
+     "strMealThumb": "https://www.themealdb.com/images/media/meals/vptqpw1511798500.jpg",
+     "idMeal": "52918"
+   },
+   {
+     "strMeal": "Garides Saganaki",
+     "strMealThumb": "https://www.themealdb.com/images/media/meals/wuvryu1468232995.jpg",
+     "idMeal": "52764"
+   },
+   {
+     "strMeal": "Grilled Portuguese sardines",
+     "strMealThumb": "https://www.themealdb.com/images/media/meals/lpd4wy1614347943.jpg",
+     "idMeal": "53041"
+   },
+   {
+     "strMeal": "Honey Teriyaki Salmon",
+     "strMealThumb": "https://www.themealdb.com/images/media/meals/xxyupu1468262513.jpg",
+     "idMeal": "52773"
+   },]; */
+
+  /* const data = [
+     {
+       "id": 1,
+       "name": "Leanne Graham",
+       "username": "Bret",
+       "email": "Sincere@april.biz",
+       "address": {
+         "street": "Kulas Light",
+         "suite": "Apt. 556",
+         "city": "Gwenborough",
+         "zipcode": "92998-3874",
+         "geo": {
+           "lat": "-37.3159",
+           "lng": "81.1496"
+         }
+       },
+       "phone": "1-770-736-8031 x56442",
+       "website": "hildegard.org",
+       "company": {
+         "name": "Romaguera-Crona",
+         "catchPhrase": "Multi-layered client-server neural-net",
+         "bs": "harness real-time e-markets"
+       }
+     },]; */
+
+
+
+
+
 
   return (
-    <>
-      <Routes >
-        <Route path='/' element={<RootLayOut />} >
-          <Route index element={<HomePage />} />
+    <>    <Routes >
+      <Route path='/' element={<RootLayOut />} >
+        <Route index element={<HomePage />} />
 
-          <Route path='/' element={<NotFound />} />
 
-        </Route>
+        <Route path='movie/:category' element={<Category />} />
+        <Route path='/movie/detail/:id' element={<Detail />} />
+        <Route path='/searchmovie/:search' element={<Search />} />
 
-      </Routes>
+        <Route path='/searchpage/:category/:page' element={<PageMovie />} />
+
+
+
+      </Route>
+
+    </Routes>
+      <ToastContainer />
 
     </>
+
+
+
   )
 }
 
